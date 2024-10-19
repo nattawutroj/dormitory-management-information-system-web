@@ -1,0 +1,14 @@
+{
+  "navbar": { "loginBtn": "Login" },
+  "login": {
+    "title": "Login",
+    "username": "Username",
+    "password": "Password",
+    "placeholderUser": "Your Student ID or Username",
+    "placeholderPass": "Your Password"
+  },
+  "validation": {
+    "usernameReq": "Please enter a username, as it is required",
+    "passwordReq": "Please enter a password, as it is required"
+  }
+}
