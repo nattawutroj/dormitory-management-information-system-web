@@ -1,0 +1,28 @@
+{
+  "_client-CeGHaAMR.js": {
+    "file": "assets/client-CeGHaAMR.js",
+    "name": "client",
+    "dynamicImports": [
+      "app/routes/index.tsx?tsr-split",
+      "app/routes/index.tsx?tsr-split"
+    ]
+  },
+  "app/routes/index.tsx?tsr-split": {
+    "file": "assets/index-CEkSuytU.js",
+    "name": "index",
+    "src": "app/routes/index.tsx?tsr-split",
+    "isDynamicEntry": true,
+    "imports": [
+      "_client-CeGHaAMR.js"
+    ]
+  },
+  "virtual:$vinxi/handler/client": {
+    "file": "assets/client-_aV0kvq-.js",
+    "name": "client",
+    "src": "virtual:$vinxi/handler/client",
+    "isEntry": true,
+    "imports": [
+      "_client-CeGHaAMR.js"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};export { v as default } from './chunks/runtime.mjs';
+import 'node:http';
+import 'node:https';
+import 'node:zlib';
+import 'node:stream';
+import 'node:buffer';
+import 'node:util';
+import 'node:url';
+import 'node:net';
+import 'node:fs';
+import 'node:path';
+import 'node:async_hooks';
+import 'vinxi/lib/invariant';
+import 'vinxi/lib/path';
+import 'react/jsx-runtime';
+import 'fs';
+import '@tanstack/react-router';
+import 'tiny-invariant';
+import 'react';
+import 'jsesc';
+import 'isbot';
+import 'react-dom/server';
+import '@tanstack/react-cross-context';
+import 'react-dom';
+//# sourceMappingURL=index.mjs.map
