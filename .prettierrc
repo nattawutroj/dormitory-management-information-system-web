@@ -1,0 +1,35 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "arrowParens": "always",
+  "trailingComma": "es5",
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "importOrder": [
+    "^react$",
+    "^react/(.*)$",
+    "^next",
+    "^zod$",
+    "^axios$",
+    "^date-fns$",
+    "^react-hook-form$",
+    "^@hookform/resolvers/zod$",
+    "^@tanstack",
+    "^@radix-ui/react-icons$",
+    "^@tabler/icons-react$",
+    "^@heroicons",
+    "<THIRD_PARTY_MODULES>",
+    "^@nextui-org",
+    "^@/supabase",
+    "^@/providers",
+    "^@/utils/(.*)$",
+    "^@/translations",
+    "^@/shared",
+    "^[./]"
+  ]
+}
