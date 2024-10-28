@@ -8,6 +8,9 @@ export const Messages = {
     loginBtn: 'เข้าสู่ระบบ',
     loader: 'กำลังเข้าสู่ระบบ',
   },
+  navbar: {
+    profile: { welcome: 'My Account', logout: 'ออกจากระบบ' },
+  },
   validation: {
     usernameReq: 'กรุณาใส่ชื่อผู้ใช้ เนื่องจากเป็นสิ่งที่จำเป็น',
     passwordReq: 'กรุณาใส่รหัสผ่าน เนื่องจากเป็นสิ่งที่จำเป็น',
