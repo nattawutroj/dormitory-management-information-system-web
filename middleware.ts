@@ -17,13 +17,15 @@ export async function middleware(request: NextRequest) {
   }
 
   const payload: PayloadType = await decrypt(auth_token.value)
-  const isSuperuser = payload?.role === 'superuser'
+  const management = payload?.role === 'superuser' || 'moderator'
 
-  if (pathname === '/launcher' && isSuperuser) {
-    return NextResponse.redirect(new URL('/management', request.url))
+  if (pathname === '/launcher') {
+    if (management) {
+      return NextResponse.redirect(new URL('/management', request.url))
+    }
   }
 
-  if (isSuperuser && pathname.includes('management')) {
+  if (management && pathname.includes('management')) {
     return NextResponse.next()
   }
 
