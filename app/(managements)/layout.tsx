@@ -19,11 +19,17 @@ export default function ManagementLayout({
   children: React.ReactNode
 }>) {
   return (
-    <>
-      <div className="relative z-10 h-16 w-full shadow">
-        <div className="container flex h-full items-center justify-between">
-          <Image src={HorizonLogo} alt="horizon logo" className="h-14 w-auto" />
-          <div className="flex h-full items-center justify-between">
+    <div className="relative min-h-screen">
+      <div className="sticky top-0 z-40 h-16 w-full bg-white shadow">
+        <div className="container mx-auto flex h-full items-center justify-between px-4">
+          <div className="flex items-center gap-4">
+            <Image
+              src={HorizonLogo}
+              alt="horizon logo"
+              className="h-10 w-auto"
+            />
+          </div>
+          <div className="flex items-center gap-2">
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-2 focus:outline-0">
                 <Avatar>
@@ -45,7 +51,10 @@ export default function ManagementLayout({
           </div>
         </div>
       </div>
-      {children}
-    </>
+      <div className="container mt-4 flex h-[4000px]">
+        <div className="hidden w-1/4 lg:block">menu bar</div>
+        <div className="w-full lg:w-3/4">{children}</div>
+      </div>
+    </div>
   )
 }
