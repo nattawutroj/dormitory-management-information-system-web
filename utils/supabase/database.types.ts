@@ -9,6 +9,39 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      configs: {
+        Row: {
+          key: string
+          value: number | null
+        }
+        Insert: {
+          key: string
+          value?: number | null
+        }
+        Update: {
+          key?: string
+          value?: number | null
+        }
+        Relationships: []
+      }
+      dormitory: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
       managers: {
         Row: {
           created_at: string
@@ -35,6 +68,38 @@ export type Database = {
           username?: string
         }
         Relationships: []
+      }
+      room: {
+        Row: {
+          created_at: string
+          dormitory_id: string
+          id: string
+          room_number: string
+          status: Database['public']['Enums']['status_dormitory']
+        }
+        Insert: {
+          created_at?: string
+          dormitory_id: string
+          id?: string
+          room_number: string
+          status?: Database['public']['Enums']['status_dormitory']
+        }
+        Update: {
+          created_at?: string
+          dormitory_id?: string
+          id?: string
+          room_number?: string
+          status?: Database['public']['Enums']['status_dormitory']
+        }
+        Relationships: [
+          {
+            foreignKeyName: 'room_dormitory_id_fkey'
+            columns: ['dormitory_id']
+            isOneToOne: false
+            referencedRelation: 'dormitory'
+            referencedColumns: ['id']
+          },
+        ]
       }
     }
     Views: {

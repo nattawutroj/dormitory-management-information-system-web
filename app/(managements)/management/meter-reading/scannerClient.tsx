@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import heic2any from 'heic2any'
 
-export default function ManagementClient() {
+export default function ScannerClient() {
   const [image, setImage] = useState<string | null>(null)
   const [ocrResult, setOcrResult] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -18,10 +18,6 @@ export default function ManagementClient() {
   const endpoint = process.env.NEXT_PUBLIC_PYTHON_ENGINE || ''
 
   const convertImageToJPEG = async (file: File): Promise<string> => {
-    if (typeof window === 'undefined') {
-      throw new Error('window is not available on the server')
-    }
-
     try {
       let imageBlob: Blob = file
 
@@ -85,54 +81,52 @@ export default function ManagementClient() {
   }
 
   return (
-    <div>
-      <Card>
-        <CardHeader>
-          <Label>Upload an Image</Label>
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={async (event) => {
-              const files = event.target?.files
-              if (files && files[0]) {
-                try {
-                  const jpegDataUrl = await convertImageToJPEG(files[0])
-                  setImage(jpegDataUrl)
-                } catch (error) {
-                  console.log(error)
-                  setError('Error processing image. Please try another file.')
-                }
+    <Card>
+      <CardHeader>
+        <Label>Upload an Image</Label>
+        <Input
+          type="file"
+          accept="image/*"
+          onChange={async (event) => {
+            const files = event.target?.files
+            if (files && files[0]) {
+              try {
+                const jpegDataUrl = await convertImageToJPEG(files[0])
+                setImage(jpegDataUrl)
+              } catch (error) {
+                console.log(error)
+                setError('Error processing image. Please try another file.')
               }
-            }}
+            }
+          }}
+        />
+      </CardHeader>
+      {image && (
+        <CardContent className="flex flex-col gap-3">
+          <Label>Preview</Label>
+          <Image
+            src={image}
+            alt="Uploaded Preview"
+            width={200}
+            height={200}
+            className="mx-auto"
           />
-        </CardHeader>
-        {image && (
-          <CardContent className="flex flex-col gap-3">
-            <Label>Preview</Label>
-            <Image
-              src={image}
-              alt="Uploaded Preview"
-              width={200}
-              height={200}
-              className="mx-auto"
-            />
-            <Button onClick={handleUploadToServer} disabled={loading}>
-              {loading ? 'Processing...' : 'Upload and Get OCR Result'}
-            </Button>
-          </CardContent>
-        )}
-        {ocrResult && (
-          <CardFooter className="flex gap-2">
-            <h2>OCR Result:</h2>
-            <p>{ocrResult}</p>
-          </CardFooter>
-        )}
-        {error && (
-          <CardFooter className="flex gap-2 text-red-500">
-            <p>{error}</p>
-          </CardFooter>
-        )}
-      </Card>
-    </div>
+          <Button onClick={handleUploadToServer} disabled={loading}>
+            {loading ? 'Processing...' : 'Upload and Get OCR Result'}
+          </Button>
+        </CardContent>
+      )}
+      {ocrResult && (
+        <CardFooter className="flex gap-2">
+          <h2>OCR Result:</h2>
+          <p>{ocrResult}</p>
+        </CardFooter>
+      )}
+      {error && (
+        <CardFooter className="flex gap-2 text-red-500">
+          <p>{error}</p>
+        </CardFooter>
+      )}
+    </Card>
   )
 }

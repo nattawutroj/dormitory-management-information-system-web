@@ -1,7 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import HorizonLogo from '@/assets/horizontalLogo.png'
+import { BreadcrumbManagements } from '@/components/pages/managements/breadcrumb'
+import Menu from '@/components/pages/managements/menu'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Card } from '@/components/ui/card'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -51,9 +54,18 @@ export default function ManagementLayout({
           </div>
         </div>
       </div>
-      <div className="container mt-4 flex h-[4000px]">
-        <div className="hidden w-1/4 lg:block">menu bar</div>
-        <div className="w-full lg:w-3/4">{children}</div>
+      <div className="container my-8 mt-12 flex justify-end">
+        <div className="w-4/5">
+          <BreadcrumbManagements />
+        </div>
+      </div>
+      <div className="container mt-4 flex h-screen">
+        <div className="mt-4 hidden w-1/5 lg:block">
+          <Menu />
+        </div>
+        <div className="w-full lg:w-4/5">
+          <Card className="p-6">{children}</Card>
+        </div>
       </div>
     </div>
   )
