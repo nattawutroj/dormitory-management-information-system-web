@@ -21,4 +21,10 @@ export const Messages = {
   toast: {
     destructive: 'โอ้ะโอ้! มีบางอย่างผิดพลาด.',
   },
+  rooms: {
+    addRoomsBtn: 'เพิ่มห้องพัก',
+    modal: {
+      title: 'เพิ่มห้องพัก',
+    },
+  },
 }

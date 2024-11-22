@@ -126,9 +126,15 @@ export const LoginCard = () => {
             </form.Field>
           </CardContent>
           <CardFooter>
-            <Button type="submit" className="w-full">
-              {Messages.login.loginBtn}
-            </Button>
+            <form.Subscribe
+              selector={(state) => [state.canSubmit, state.isSubmitting]}
+            >
+              {([canSubmit, isSubmitting]) => (
+                <Button type="submit" className="w-full" disabled={!canSubmit}>
+                  {isSubmitting ? '...' : Messages.login.loginBtn}
+                </Button>
+              )}
+            </form.Subscribe>
           </CardFooter>
         </form>
       )}
