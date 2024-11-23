@@ -1,13 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Messages } from '@/constant/messages'
+import { LoginSchema } from '@/hooks/forms/auth/schema'
 import { encrypt } from '@/lib/jwt'
 import { createClient } from '@/utils/supabase/server'
 import { validateFormData } from '@/utils/zod/api/validateFormData'
-import { LoginSchema } from '@/hooks/forms/auth/schema'
 
 export async function POST(request: NextRequest) {
   const body = await request.formData()
-
 
   const validationResult = validateFormData(LoginSchema, body)
 

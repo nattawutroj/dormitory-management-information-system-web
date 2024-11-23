@@ -25,6 +25,17 @@ export const Messages = {
     addRoomsBtn: 'เพิ่มห้องพัก',
     modal: {
       title: 'เพิ่มห้องพัก',
+      selectDormitory: {
+        placeholder: 'เลือกอาคาร',
+        find: 'กรอกชื่ออาคารที่คุณต้องการ',
+        newDormitory: 'เพิ่ม อาคาร',
+      },
     },
+  },
+  confirmAction: {
+    message: 'คุณต้องการทำสิ่งนี้หรือไม่?',
+    title: 'ยืนยันการทำงาน',
+    confirmText: 'ยืนยัน',
+    cancelText: 'ยกเลิก',
   },
 }
