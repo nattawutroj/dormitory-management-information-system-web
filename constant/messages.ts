@@ -30,6 +30,16 @@ export const Messages = {
         find: 'กรอกชื่ออาคารที่คุณต้องการ',
         newDormitory: 'เพิ่ม อาคาร',
       },
+      tabs: {
+        single: {
+          title: 'ห้องเดียว',
+          labelRoomNumber: 'หมายเลขห้อง',
+          roomNumberPlaceholder: 'กรองหมายเลขห้องที่คุณต้องการเพิ่ม',
+        },
+      },
+      toast: {
+        success: { title: 'เพิ่มห้องสำเร็จ' },
+      },
     },
   },
   confirmAction: {
