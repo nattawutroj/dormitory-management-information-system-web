@@ -1,4 +1,4 @@
-import { ModalsAddRoom } from '@/components/modals/addRoom'
+import { ModalsAddRoom } from '@/components/modals/addRoom/'
 import { RoomsPanel } from './panel'
 
 export default function Rooms() {

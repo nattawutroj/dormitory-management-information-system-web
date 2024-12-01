@@ -23,6 +23,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Messages } from '@/constant/messages'
 import {
   CreateDormitoryClient,
@@ -31,7 +32,9 @@ import {
 import { cn } from '@/lib/utils'
 import { CirclePlus } from 'lucide-react'
 import { Check, ChevronsUpDown } from 'lucide-react'
-import { ConfirmAction } from './confirmAction'
+import { ConfirmAction } from '../confirmAction'
+import { TabsMulti } from './elements/tabs/multi'
+import { TabsSingle } from './elements/tabs/single'
 
 const useCreateDormitory = () => {
   const queryClient = useQueryClient()
@@ -72,9 +75,9 @@ export const ModalsAddRoom = () => {
         {Messages.rooms.addRoomsBtn}
       </DialogTrigger>
       <DialogContent>
-        <DialogHeader>
+        <DialogHeader className="gap-2">
           <DialogTitle>{Messages.rooms.modal.title}</DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="flex flex-col gap-2">
             <Popover open={open} onOpenChange={setOpen}>
               <PopoverTrigger asChild>
                 <Button
@@ -147,6 +150,14 @@ export const ModalsAddRoom = () => {
                 </Command>
               </PopoverContent>
             </Popover>
+            <Tabs defaultValue="multi" className="w-full">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="multi">หลายห้อง</TabsTrigger>
+                <TabsTrigger value="single">ห้องเดียว</TabsTrigger>
+              </TabsList>
+              <TabsMulti value="multi" />
+              <TabsSingle value="single" dormitoryID={value} />
+            </Tabs>
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
